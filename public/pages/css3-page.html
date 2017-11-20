@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <meta http-equiv=X-UA-Compatible content="ie=edge">
+  <title>Document</title>
+</head>
+<link rel=stylesheet href=style.css>
+<body>
+  <div class=toplength>
+      <div class=top>
+          <a href=/about class=topleft>陈耀辉</a>
+          <a href="" class=topright>About</a>
+        </div>
+  </div>
+  <div class=contentbox>
+    <div class=content>
+      <div class=contentInner>
+          <h1 class=pagetitle>css3新属性</h1>
+          <div class=pagedate>Nov 8</div>
+          <div class=pagecontent>
+              <h5>一、css3边框：border-radius/box-shadow/border-image</h5>
+              <div class=pagecode>
+                    <div class=codetitle>code</div>
+                    <div class=code>
+                        <div class=codeline>
+                          <span class=number>1</span>
+                          <span class=codes>border-radius:10px/20%</span>
+                        </div>
+                        <div class=codeline>
+                          <span class=number>2</span>
+                          <span class=codes>border-top-right-radius:10px/20%</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>3</span>
+                            <span class=codes>border-top-left-radius:10px/20%</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>4</span>
+                            <span class=codes>border-bottom-left-radius:10px/20%</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>5</span>
+                            <span class=codes>border-bottom-right-radius:10px/20%</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>6</span>
+                            <span class=codes>border-radius:10px 10px 10px 10px(四个值是左上，右上，右下，左下)</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>7</span>
+                            <span class=codes>border-radius:10px 10px(两个个值是左上，右下；右上，左下)</span>
+                        </div>
+                    </div>
+                </div>
+                <h5>二、css3背景：background-image/background-size/background-origin/background-clip</h5>
+                <div class=pagecode>
+                    <div class=codetitle>code</div>
+                    <div class=code>
+                        <div class=codeline>
+                            <span class=number>1</span>
+                            <span class=codes>background-image:url(a.jpg,b.jpg)</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>2</span>
+                            <span class=codes>background-position: right bottom, left top;/cover/contain</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>3</span>
+                            <span class=codes>background-repeat: no-repeat/repeat-x/repeat-y</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>4</span>
+                            <span class=codes>background-size: 10px 10px/20% 20%/contain/cover</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>5</span>
+                            <span class=codes>background-origin: border-box/padding-box/content-box(背景图片的位置)</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>6</span>
+                            <span class=codes>background-clip: border-box/padding-box/content-box(背景剪裁属性是从指定位置开始绘制。)</span>
+                        </div>
+                    </div>
+                </div>
+                <h5>三、css3渐变：background: linear-gradient(red, blue);支持ie10以上的浏览器</h5>
+                <p class=hcontent>1、线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向</p>
+                <p class=hcontent>2、径向渐变（Radial Gradients）- 由它们的中心定义</p>
+                <div class=pagecode>
+                    <div class=codetitle>code</div>
+                    <div class=code>
+                        <div class=codeline>
+                            <span class=number>1</span>
+                            <span class=codes>background: linear-gradient(red, blue); /* 默认情况下是从上往下 */</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>2</span>
+                            <span class=codes>background: linear-gradient(to left, red , blue); /* left,right,top,bottom </span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>3</span>
+                            <span class=codes>background: linear-gradient(to bottom right, red , blue); /*右下*/</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>4</span>
+                            <span class=codes>background: linear-gradient(180deg, red, blue); /* 按一定的角度渐变 */</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>5</span>
+                            <span class=codes>background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); /*透明度的渐变 */</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>6</span>
+                            <span class=codes>background: radial-gradient(circle red 5%, green 10%, blue 20%); /* 标准的语法 */</span>
+                        </div>
+                        <div class=codeline>
+                            <span class=number>7</span>
+                            <span class=codes>background: repeating-radial-gradient(red, yellow 10%, green 15%);/*重复的径向渐变*/</span>
+                        </div>
+                    </div>
+                </div>
+                <h5>四、css3文本效果</h5>
+                <p class=hcontent>1、text-shadow:第一个参数左右距离，第二个参数上下距离，第三个参数模糊程度，第四个参数颜色</p>
+                <p class=hcontent>2、box-shadow:第一个参数左右距离，第二个参数上下距离，第三个参数延伸长度，第四个参数阴影模糊程度，第五个参数颜色</p>
+                <p class=hcontent>也可以通过为元素来添加阴影</p>
+                <p class=hcontent>3、text-overflow：ellipsis(显示省略号)，clip(超出裁剪)这个属性通常与title属性搭配使用</p>
+                <h5>五、css3字体</h5>
+                <p class=hcontent>1、@font-face</p>
+                <h5>六、css3之2D旋转：translate(10px 20px),rotateXYZ(30deg),scale(2,3),skew(20deg,30deg)</h5>
+                <h5>七、css3之过渡</h5>
+                <p class=hcontent>transition:第一个参数过渡属性，第二个参数过渡花费时间，第三个属性过渡方式，第四个参数过渡延迟</p>
+                <h5>八、css3之动画</h5>
+                <p class=hcontent>1、@keyframes规则是创建动画。 @keyframes规则内指定一个CSS样式和动画将逐步从目前的样式更改为新的样式。</p>
+                <p class=hcontent>2、animation动画持续时间</p>
+                <h5>九、css3之多列属性</h5>
+                <p class=hcontent>column-count:列数；column-gap：列与列之间的间隙；column-rule-style:列边框样式；column-rule-width列边框厚度；column-rule-color: 列边框颜色；column-width：列宽</p>
+                <h5>十、css3之resize在ie中不兼容：任何标签都有这个属性，不只是textarea标签</h5>
+                <h5>十一、css3之border-sizing属性值：border-box/content-box</h5>
+                <h5>十二、css之outline类似于border，但是在border外层，通过outline-offset可以设置border与outline的间隙</h5>
+                <h5>十三、css3之filter属性图片滤镜</h5>
+                <h5>十四、css之button的属性值：cursor：not-allowed禁用按钮</h5>
+                <h5>十五、flex布局支持ie11以上的浏览器，弹性布局只是针对弹性子元素</h5>
+                <p class=hcontent>1、direction可以指定布局方向</p>
+                <p class=hcontent>2、flex-wrap：nowrap/wrap</p>
+                <h5>十六、媒体查询@media支持ie9以上</h5>
+                <p class=hcontent>1、屏幕类型：screen，print，speech，all</p>
+                <div class=pagecode>
+                        <div class=codetitle>code</div>
+                        <div class=code>
+                            <div class=codeline>
+                              <span class=number>1</span>
+                              <span class=codes>@media screen and (max-width: 699px) and (min-width: 520px) {</span>
+                            </div>
+                            <div class=codeline>
+                              <span class=number>2</span>
+                              <span class=codes>ul li a {</span>
+                            </div>
+                            <div class=codeline>
+                                <span class=number>3</span>
+                                <span class=codes>padding-left: 30px;</span>
+                                </div>
+                            <div class=codeline>
+                                <span class=number>4</span>
+                                <span class=codes>background: url(email-icon.png) left center no-repeat;</span>
+                            </div>
+                            <div class=codeline>
+                                <span class=number>5</span>
+                                <span class=codes>}</span>
+                            </div>
+                            <div class=codeline>
+                                <span class=number>6</span>
+                                <span class=codes>}</span>
+                            </div>
+                        </div>
+                    </div>
+
+             
+            
+            </div>
+      </div>
+      <div class=pagination>
+        <a href="" class=pre>&ltPre</a>
+        <a href="" class=next>Next&gt</a>
+      </div>
+    </div>
+  </div>
+  <div class=footer>
+    @2012-2017
+  </div>
+<script type=text/javascript src=../js/index-b6d5cdd72a7d9d176b41.js></script></body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <meta http-equiv=X-UA-Compatible content="ie=edge">
+  <title>Document</title>
+</head>
+<link rel=stylesheet href=style.css>
+<body>
+  <div class=toplength>
+      <div class=top>
+          <a href=/index class=topleft>陈耀辉</a>
+          <a href=/about class=topright>About</a>
+        </div>
+  </div>
+  <div class=contentbox>
+    <div class=content>
+      <div class=contentInner>
+          <h1 class=pagetitle>前端面试</h1>
+          <div class=pagedate>Nov 9</div>
+          <div class=pagecontent>
+              <h5>一、html的语义化理解</h5>
+              <p class=hcontent>1、根据内容的结构使用语义化的标签以便于开发者阅读和爬虫解析</p>
+              <p class=hcontent>2、在没有css的情况下也可以很好的展示内容</p>
+              <p class=hcontent>3、有利于SEO</p>
+              <p class=hcontent>4、H5新增语义化标签《header》、《nav》、《section》、《article》、《footer》、《hgroup》</p>
+              <h5>二、css动画性能比较</h5>
+              <p class=hcontent>1、触发重布局的属性：盒子模型相关属性会触发重布局、定位属性及浮动也会触发重布局、改变节点内部文字结构也会触发重布局</p>
+              <p class=hcontent>2、触发重绘的属性：color、background相关的属性</p>
+              <p class=hcontent>3、js动画能很好的处理浏览器的兼容性问题，但是css动画渲染速度相对比较快，transition的性能要好于left，right</p>
+              <p class=hcontent>4、尽可能的让动画元素不在文档流中，以减少重排</p>
+              <p class=hcontent>5、尽可能少的使用box-shadows与gradients</p>
+              <p class=hcontent>6、使用layout提取公用部分</p>
+              <h5>三、<a href=http://www.jianshu.com/p/f66936ecdf99>浏览器的兼容问题</a></h5>
+              <h5>四、如何实现一个性能优化的slider</h5>
+              <h5>五、如何实现一个搜索高亮的文件树</h5>
+              <p class=hcontent>1、可以通过获取到所有的标签然后对标签内文字进行indexOf,然后加一堆带有样式的标签</p>
+              <h5>六、instancef与typeof的区别</h5>
+              <p class=hcontent>1、typeof：可以用来确定一个变量的数据类型</p>
+              <p class=hcontent>2、instanceof：可以用来确定一个引用类型值的是什么类型的对象</p>
+              <h5>六、一次http请求的完整流程</h5>
+              <p class=htcontent>1、客户端（这里是浏览器）先向DNS服务器发送一个请求，说告诉我www.helloworld.com 对于的IP地址吧，DNS查询后返回给客户端说 IP地址是202.211.103.22(瞎编的)。</p>
+              <p class=hcontent>2、客户端使用http协议把请求打包。（这里比较简单，请求的内容是把index.html页面的内容给我。）</p>
+              <p class=hcontent>3、TCP协议为了方便通信，把HTTP请求报文分割成好几段，每段报文可靠的传给对方。（别问为什么能保证可靠，TCP就是这么牛。有兴趣的朋友可查阅TCP建立连接的三次握手策略）</p>
+              <p class=hcontent>4、服务器侧使用TCP协议把从对方接收到的报文重组成原来的请求报文。</p>
+              <p class=hcontent>5、服务器再使用HTTP协议对请求报文进行解析，发现客户端原来是想要index.html这个文件的内容，然后就把请求结果返回给客户端，原路返回。</p>
+              <h5>七、ajax请求的原理以及优缺点</h5>
+              <p class=hcontent>1、ajax的原理相当于在客户端与服务端之间建立一个新的中间层（ajax引擎），这样使得页面中一些小部分的数据更改（表单提交、验证等）只需要交给ajax引擎来处理，只有需要从服务器读取数据时才通过ajax代为向服务器发起请求</p>
+              <p class=hcontent>2、ajax的核心就是XHMLHTTP、JavaScript、DOM对象， 通过XHMLHTTP向服务器发起请求，然后拿到数据通过JavaScript对DOM进行操作</p>
+              <p class=hcontent>3、ajax的有点：无刷新更新页面的数据；不许用打断用户的操作，异步与服务器之间进行通信；前后端负载均衡，节省宽度，节省空间</p>
+              <p class=hcontent>4、ajax的缺点：ajax干掉了back和history的功能，使得页面无法回到操作之间的状态页面；ajax请求导致客户端与服务端之间建立了更多的联系方式，使得web端安全性受到一定的影响：脚本攻击、sql注入等；</p>
+              <h5>八、变量提升</h5>
+              <p class=hcontent>1、变量提升就是把变量声明放在它所在作用域的初始阶段，这样做可以有效的避免文件中报错</p>
+              <h5>九、js的严格模式</h5>
+              <p class=hcontent>1、严格模式的作用：消除一些不合理、不严谨的代码格式列入变量的声明可以用const和let声明常量和块级作用域的变量；提高编译器效率</p>
+              <p class=hcontent>2、严格模式的标识："use strict",必须在第一行，也可以放在前面没有严格意义上的有执行结果的代码之后，可以针对某个函数使用严格模式，放在函数的第一行，对于引入的js文件要使用严格模式，则可以使用在最外层加一层函数自调用然后自调用函数内部写"use strict"</p>
+              <p class=hcontent>3、严格模式下：不能使用while循环；严格模式下会增设一个作用域evail作用域，正常模式下只有函数作用域和全局作用域；禁止this关键字指向全局对象；禁止在函数内部遍历调用栈，在函数内部使用callee，arguments；禁止删除变量<a href=http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html>更多查看……</a></p>
+              <h5>十、get与post的区别</h5>
+              <p class=hcontent>1、get使用的URL和cookie传参，在长度上有限制，超过一定长度接口就会报错，post请求是body传参</p>
+              <p class=hcontent>2、get请求不怎么安全，因为参数在地址栏中可以看到并且会保存到地址栏浏览记录里，而post不会</p>
+              <h5>十一、aplpy/call/bind的区别</h5>
+              <img src=interview1.png alt="" class=hcontent>
+              <h5>十二、函数式编程</h5>
+              <p class=hcontent>1、函数式编程有两个基本的运算：合成和柯里化</p>
+              <p class=hcontent>2、函数的合成是指多个纯函数整合成一个纯函数，因为只有纯函数CIA可以进行整合</p>
+              <p class=hcontent>3、函数的柯里化就是把有多个参数的函数整合成一个参数，因为如果一个函数有多个参数，对函数进行整合时会比较麻烦</p>
+              <h5>十三、面向对象编程</h5>
+              <p class=hcontent>1、面向对象编程其实就是把公用的、不变的方法写在原型里，把属性写在构造函数中</p>
+              <img src=interview2.png alt="" class=hcontent>
+              <h5>十四、事件DOMContentLoaded和load的区别</h5>
+              <p class=hcontent>1、DOM加载顺序:解析HTML结构-加载外部样式和脚本-解析并执行脚本文件-dom树构建完成（DOMContentLoaded）-加载图片等外部文件-页面加载完成（load）</p>
+              <p class=hcontent>2、一般会把js文件放到最后加载，因为dom构建完成之前执行脚本会报错</p>
+              <h5>十五、e.preventDeafault()的参数</h5>
+              <p class=hcontent>第一个参数添加事件名，第二个参数事件执行函数，第三个参数是布尔值：true时捕获阶段执行，先执行捕获父节点事件，然后在执行自己的事件；false相反</p>
+              <div class=pagecode>
+                  <div class=codetitle>code</div>
+                  <div class=code>
+                      <div class=codeline>
+                        <span class=number>1</span>
+                        <span class=codes>sdfasdfadsfasdf</span>
+                      </div>
+                      <div class=codeline>
+                        <span class=number>2</span>
+                        <span class=codes>sdfasdfadsfasdf</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class=pagination>
+        <a href="" class=pre>&ltPre</a>
+        <a href="" class=next>Next&gt</a>
+      </div>
+    </div>
+  </div>
+  <div class=footer>
+    @2012-2017
+  </div>
+<script type=text/javascript src=../js/index-35458caad094791a102f.js></script></body>
+</html>
