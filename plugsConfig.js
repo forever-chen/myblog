@@ -11,7 +11,7 @@ function plugs(director) {
         newHtml.push(
             new HtmlWebpackPlugin({
                 template: path.resolve("./views/" + htm), //new 一个这个插件的实例，并传入相关的参数
-                filename: '../' + director+'/' + htm, //指定生成html文件的文件名以及文件位置,文件的位置是相对于output的path
+                filename: htm==='index.html'?'../../index.html':'../' + director+'/' + htm, //指定生成html文件的文件名以及文件位置,文件的位置是相对于output的path
                 minify: {
                     removeAttributeQuotes: true // 移除属性的引号
                 },

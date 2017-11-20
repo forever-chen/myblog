@@ -1,8 +1,10 @@
 const express=require("express");
 const path=require('path')
 const app=new express();
-app.use(express.static(path.resolve(__dirname,'css')));
-app.use(express.static(path.resolve(__dirname,'image')));
+// app.use(express.static(path.resolve(__dirname,'css')));
+// app.use(express.static(path.resolve(__dirname,'image')));
+app.use(express.static(path.resolve(__dirname,'public')));
+
 
 // app.use(express.static(path.resolve(__dirname,'font')));
 
