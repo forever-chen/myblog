@@ -25,16 +25,16 @@
               <h5>二、跨域的解决方案</h5>
               <p class="hcontent">1、jsonp的方式，这种方式只支持get请求，不支持post请求，没有兼容性问题，不能解决不同域的两个页面之间如何进行JavaScript调用的问题,因为jsonp是通过src地址栏引入的，所以不支持post请求</p>
               <p class="hcontent">JSONP的最基本的原理是：动态添加一个script标签，而script标签的src属性是没有跨域的限制的。这样说来，这种跨域方式其实与ajax XmlHttpRequest协议无关了。</p>
-              <img src="cross1.png" alt="" class="hcontent">
+              <img src="./image/cross1.png" alt="" class="hcontent">
               <p class="hcontent">这样写的话另一个域名地址后端也要进行处理</p>
-              <img src="cross2.png" alt="" class="hcontent">
+              <img src="./image/cross2.png" alt="" class="hcontent">
               <p class="hcontent">2、第二种方式：通过修改document.domain来跨子域，通过iframe实现跨域，方法只适用于不同子域的框架间的交互</p>
               <p class="hcontent">3、第三种方式：使用window.name来进行跨域</p>
               <p class="hcontent">window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。</p>
               <p class="hcontent">此方法的缺点是只能在本窗口，切换到新窗口就不行了</p>
-              <img src="cross3.png" alt="" class="hcontent">
+              <img src="./image/cross3.png" alt="" class="hcontent">
               <p class="hcontent">4、第四种方式：使用HTML5中新引进的window.postMessage方法来跨域传送数据</p>
-              <img src="cross4.png" alt="" class="hcontent">
+              <img src="./image/cross4.png" alt="" class="hcontent">
               <p class="hcontent">使用postMessage来跨域传送数据还是比较直观和方便的，但是缺点是IE6、IE7不支持，所以用不用还得根据实际需要来决定。</p>
           </div>
       </div>
@@ -45,7 +45,7 @@
     </div>
   </div>
   <div class="footer">
-    @2012-2017
+    @2016-2017
   </div>
 </body>
 </html>
