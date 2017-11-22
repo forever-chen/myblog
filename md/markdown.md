@@ -40,6 +40,13 @@ This is [an example](http://example.com/ "Title") inline link.
 ### 插入图片
 ![Alt text](http://hnc-hb-pre.oss.cn-north-1.jcloudcs.com/6154978d-fb6c-486d-b003-2092df844aa0.jpg "[Alt text](http://hnc-hb-pre.oss.cn-north-1.jcloudcs.com/6154978d-fb6c-486d-b003-2092df844aa0.jpg")
 ---
+### 代码
+* 行内插入代码直接用\```就可以`sdfasdfdsff`
+* 如果插入多行代码则需要把所有代码加两个Table键并且代码与顶部文字之间空一行，不需用加\```
+*  
+		fskdafkasdf
+		sdkfkasdf
+		dkfljasdjf
 ### ***注意事项***
 * markdown输入特殊字符需要反斜杠来进行转移
 * markdown支持html标签（特别是链接可以直接用a链接标签，图片也可以用哪个img标签）
