@@ -1,55 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<link rel="stylesheet" href="../css/style.css">
-<body>
-  <div class="toplength">
-      <div class="top">
-          <a href="/" class="topleft">陈耀辉</a>
-          <a href="/views/about" class="topright">About</a>
-        </div>
-  </div>
-  <div class="contentbox">
-    <div class="content">
-      <div class="contentInner">
-          <h1 class="pagetitle">js实现深拷贝、浅拷贝</H1>
-          <div class="pagedate">Nov 7</div>
-          <div class="pagecontent">
-              <h5>一、那些数据类型涉及到深拷贝</h5>
-              <p class="hcontent">1、只有对象和数组才存在深拷贝和浅拷贝，其它的函数、字符串、数字、boolean、null不存在深浅拷贝，都是深拷贝</p>
-              <p class="hcontent">2、数组和对象的深拷贝可以用Json的方法来实现</p>
-              <a href=""></a>
-              <h5>二、event Loop</h5>
-              <p class="hcontent">1、事件循环是指：主线程从"任务队列"中读取事件</p>
-              <p class="hcontent">2、主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码调用各种外部API，它们在"任务队列"中加入各种事件（click，load，done）。只要栈中的代码执行完毕，主线程就会去读取"任务队列"，依次执行那些事件所对应的回调函数。</p>
-              <p class="hcontent">3、时间函数也属于任务队列，只有当栈中代码执行完毕才会去执行事件函数，与时间函数的位置没有关系</p>
-              <h5>三、node.js的Event Loop</h5>
-              <p class="hcontent">1、Node.js也是单线程的Event Loop，但是它的运行机制不同于浏览器环境。</p>
-              <p class="hcontent">2、node.js的运行机制：V8引擎解析JavaScript脚本；解析后的代码调用node API；Libuv负责nodeAPI的执行，它将不同的事件分配不同的线程，形成loop，以异步的形式将结果返回给V8；V8再将结果返回给用户</p>
-              <p class="hcontent">3、node端另外两个时间函数process.nextTick(process.nextTick在执行栈中执行   )、setImmediate<a href='http://www.ruanyifeng.com/blog/2014/10/event-loop.html'>详情见……</a></p>
-              <h5>四、macrotask、microtask的理解以及应用</h5>
-              <p class="hcontent">1、在Nodejs事件循环机制中，有任务两个队列：Macrotask队列和Microtask队列。在一个事件循环里，这两个队列会分两步执行，第一步会固定地执行一个（且仅一个）Macrotask任务，第二步会执行整个Microtask队列中的所有任务。并且，在执行Microtask队列任务的时候，也允许加入新的Microtask任务，直到所有Microtask任务全部执行完毕，才会结束循环。</p>
-              <p class="hcontent">2、Macrotasks一般包括: setTimeout, setInterval, setImmediate, I/O, UI rendering；</p>
-              <p class="hcontent">3、Macrotasks一般包括: setTimeout, setInterval, setImmediate, I/O, UI rendering；</p>
-              <p class="hcontent">4、可能存在的问题：如果一个Microtask队列太长，或者执行过程中不断加入新的Microtask任务，会导致下一个Macrotask任务很久都执行不了。结果就是，你可能会遇到UI一直刷新不了，或者I/O任务一直完成不了。
-                
-                应该是考虑到了这一点，至少Microtask任务中的process.nextTick任务，是被设置了（在一个事件循环中的）最大调用次数的，叫process.maxTickDepth。默认是1000。一定程度上避免了上述情况。</p>
-              <h5>五、虚拟DOM的基本原理以及源码解析</h5>
-          </div>
-      </div>
-      <div class="pagination">
-        <a href="" class="pre">&ltPre</a>
-        <a href="" class="next">Next&gt</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    @2016-2017
-  </div>
-</body>
-</html>
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Document</title></head><link rel='stylesheet' href='../css/style.css'><link rel='stylesheet' href='../css/md.css'><body><div class='toplength'><div class='top'><a href='/index' class='topleft'>陈耀辉</a><a href='/views/about.html' class='topright'>About</a></div></div><div class='contentbox'><div class='content'><h1 id="-">网站性能优化</h1>
+<hr>
+<h4 id="-iconfont">将小图标制作成iconfont</h4>
+<ul>
+<li>能减少文件体积、降低服务器请求数，节约宽带资源，有利于后期维护。</li>
+<li>浏览器只兼容到ie9以上</li>
+<li>用矢量制作工具制作保存成为svg：Adobe Illustrator</li>
+<li>iconfont生成器：<a href="https://icomoon.io/">icomoon.io</a>或者<a href="http://fontello.com/">fontello</a> + 自制CSS文件</li>
+<li>相关链接<a href="http://www.uisdc.com/4-icon-font-production-method">iconfont制作</a></li>
+<li><a href="https://www.cnblogs.com/camille666/p/iconfont.html">inconfont的使用以及见个人库</a></li>
+</ul>
