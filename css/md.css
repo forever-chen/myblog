@@ -34,9 +34,9 @@ a {
 a:hover {
     text-decoration: underline;
 }
-a:visited {
+/* a:visited {
     color: #466B6C;
-}
+} */
 ul, ol {
     padding: 0;
     margin: 20px;

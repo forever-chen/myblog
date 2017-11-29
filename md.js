@@ -23,7 +23,7 @@ function translate(filename) {
         breaks: true
     });
     // 保存
-    const start = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Document</title></head><link rel='stylesheet' href='../css/style.css'><link rel='stylesheet' href='../css/md.css'><body><div class='toplength'><div class='top'><a href='/index' class='topleft'>陈耀辉</a><a href='/views/about.html' class='topright'>About</a></div></div><div class='contentbox'><div class='content'>";
+    const start = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Document</title></head><link rel='stylesheet' href='../css/md.css'><link rel='stylesheet' href='../css/style.css'><body><div class='toplength'><div class='top'><a href='../index.html' class='topleft'>陈耀辉</a><a href='about.html' class='topright'>About</a></div></div><div class='contentbox'><div class='content'>";
     const address = filename === 'about' ? ('./views/' + filename + '.html') : ('./views/' + filename + '-page.html');
     fs.writeFileSync(address, start + fileContent);
 }
