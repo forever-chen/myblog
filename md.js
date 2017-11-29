@@ -13,7 +13,6 @@ fs.readdir('./md', (err, files) => {
         })
     }
 })
-
 function translate(filename) {
     fileContent = fs.readFileSync(path.resolve(__dirname, 'md/' + filename + '.md'), 'utf8');
     console.log(fileContent)
