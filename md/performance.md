@@ -7,3 +7,6 @@
 * iconfont生成器：[icomoon.io](https://icomoon.io/)或者[fontello](http://fontello.com/) + 自制CSS文件
 * 相关链接[iconfont制作](http://www.uisdc.com/4-icon-font-production-method)
 * [inconfont的使用以及见个人库](https://www.cnblogs.com/camille666/p/iconfont.html)
+* 使用ajax缓冲（对于数据不变的页面可以使用）
+* 组件开发，提升公用组件，组件的按需加载
+* 将js文件放置于html文件底部，或者在顶部时使用async异步加载

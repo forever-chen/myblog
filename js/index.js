@@ -1,5 +1,6 @@
 // 列表中数据
 var list =[
+    {title:'开发过程遇到的坑',date:'Nov 25',address:'./views/hole-page.html'},
     {title:'markdown的常用语法',date:'Nov 20',address:'./views/markdown-page.html'},
     {title:'H5新属性以及新特性',date:'Nov 11',address:'./views/h5-page.html'},
     {title:'css新属性',date:'Nov 10',address:'./views/css3-page.html'},
@@ -14,7 +15,7 @@ var list =[
     {title:'函数闭包理解',date:'Oct 29',address:'./views/closed-page.html'},
     {title:'移动端字体使用',date:'Oct 20',address:'./views/mobileFont-page.html'},
     {title:'node.Js实现数据库链接',date:'Oct 18',address:'./views/mysqlConnect-page.html'},
-]
+];
 // 页面渲染函数
 function render(){
     list.map((item,index)=>{
