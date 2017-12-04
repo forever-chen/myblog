@@ -15,7 +15,7 @@
 			database:'kangnier'    
 		})
 * 对pool方法进行封装
-* 
+
 		function query(sql,arr,fn){
 			pool.getConnection((err,con)=>{
 				con.query(sql,arr,(err,res)=>{{
@@ -27,7 +27,7 @@
 		module.exports=query //最后暴露出去
 
 * 可以同时执行多条语句，但是要在连接时候进行设置
-* 	
+
 		var connection =  mysql.createConnection( { multipleStatements: true } );		
 		connection.query('select column1; select column2; select column3;', function(err, result){
 		  if(err){
@@ -52,16 +52,17 @@
 * Objects会转换为key=value键值对的形式。嵌套的对象转换为字符串；
 * undefined/null会转换为NULL；
 * MySQL不支持NaN/Infinity，并且会触发MySQL错误。
-##
-##### 第一种方式：使用escape对传入参数进行编码
+
+##### 第一种方式：使用escape对传入参数进行编码   
 * 
 		var userId = 1, name = 'test';
 		var query = connection.query('SELECT * FROM users WHERE id = ' + connection.escape(userId) + ', name = ' + connection.escape(name), function(err, results) {
 		    // ...
 		});
 		console.log(query.sql); // SELECT * FROM users WHERE id = 1, name = 'test'
-##### 第二种方式：使用connection.query()的查询参数占位符
-*	
+
+##### 第二种方式：使用connection.query()的查询参数占位符   
+*   
 		var userId = 1, name = 'test';
 		var query = connection.query('SELECT * FROM users WHERE id = ?, name = ?', [userId, name], function(err, results) {
 		    // ...

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Document</title></head><link rel='stylesheet' href='../css/md.css'><link rel='stylesheet' href='../css/style.css'><body><div class='toplength'><div class='top'><a href='../index.html' class='topleft'>陈耀辉</a><a href='about.html' class='topright'>About</a></div></div><div class='contentbox'><div class='content'><div class='contentInner'><h1 id="node-js-">node.Js实现数据库链接</h1>
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta http-equiv='X-UA-Compatible' content='ie=edge'><title>Document</title></head><link rel='stylesheet' href='../css/style.css'><link rel='stylesheet' href='../css/md.css'><body><div class='toplength'><div class='top'><a href='../index.html' class='topleft'>陈耀辉</a><a href='about.html' class='topright'>About</a></div></div><div class='contentbox'><div class='content'><div class='contentInner'><h1 id="node-js-">node.Js实现数据库链接</h1>
 <hr>
 <h3 id="node-js-mysql-">Node.js使用MySQL的连接池</h3>
 <ul>
@@ -15,8 +15,8 @@
       database:&#39;kangnier&#39;    
   })
 </code></pre></li>
-<li>对pool方法进行封装</li>
-<li><pre><code>  function query(sql,arr,fn){
+<li><p>对pool方法进行封装</p>
+<pre><code>  function query(sql,arr,fn){
       pool.getConnection((err,con)=&gt;{
           con.query(sql,arr,(err,res)=&gt;{{
               con.release()//连接数据库获取到数据之后释放连接，避免一直占着浪费空间
@@ -27,15 +27,17 @@
   module.exports=query //最后暴露出去
 </code></pre></li>
 <li><p>可以同时执行多条语句，但是要在连接时候进行设置</p>
-</li>
-<li>  var connection =  mysql.createConnection( { multipleStatements: true } );<br>  connection.query(&#39;select column1; select column2; select column3;&#39;, function(err, result){<pre><code>if(err){
-    throw err;
-}else{
-    console.log(result[0]);       // Column1 as a result
-    console.log(result[1]);       // Column2 as a result
-    console.log(result[2]);       // Column3 as a result
-}
-</code></pre>  });</li>
+<pre><code>  var connection =  mysql.createConnection( { multipleStatements: true } );        
+  connection.query(&#39;select column1; select column2; select column3;&#39;, function(err, result){
+    if(err){
+        throw err;
+    }else{
+        console.log(result[0]);       // Column1 as a result
+        console.log(result[1]);       // Column2 as a result
+        console.log(result[2]);       // Column3 as a result
+    }
+  });
+</code></pre></li>
 </ul>
 <hr>
 <h3 id="sql-sql-">SQL中防止sql注入</h3>
@@ -50,16 +52,24 @@
 <li>多维数组转换为组列表，如[[‘a’, ‘b’], [‘c’, ‘d’]]会转换为’a’, (‘b’), (‘c’, ‘d’)；</li>
 <li>Objects会转换为key=value键值对的形式。嵌套的对象转换为字符串；</li>
 <li>undefined/null会转换为NULL；</li>
-<li>MySQL不支持NaN/Infinity，并且会触发MySQL错误。<br>##<h5 id="-escape-">第一种方式：使用escape对传入参数进行编码</h5>
-</li>
+<li>MySQL不支持NaN/Infinity，并且会触发MySQL错误。</li>
+</ul>
+<h5 id="-escape-">第一种方式：使用escape对传入参数进行编码</h5>
+<ul>
 <li><pre><code>  var userId = 1, name = &#39;test&#39;;
   var query = connection.query(&#39;SELECT * FROM users WHERE id = &#39; + connection.escape(userId) + &#39;, name = &#39; + connection.escape(name), function(err, results) {
       // ...
   });
   console.log(query.sql); // SELECT * FROM users WHERE id = 1, name = &#39;test&#39;
-</code></pre><h5 id="-connection-query-">第二种方式：使用connection.query()的查询参数占位符</h5>
-</li>
-<li>   var userId = 1, name = &#39;test&#39;;<br>   var query = connection.query(&#39;SELECT * FROM users WHERE id = ?, name = ?&#39;, [userId, name], function(err, results) {<pre><code>   // ...
-</code></pre>   });<br>   console.log(query.sql); // SELECT * FROM users WHERE id = 1, name = &#39;test&#39;</li>
+</code></pre></li>
+</ul>
+<h5 id="-connection-query-">第二种方式：使用connection.query()的查询参数占位符</h5>
+<ul>
+<li><pre><code>var userId = 1, name = &#39;test&#39;;
+var query = connection.query(&#39;SELECT * FROM users WHERE id = ?, name = ?&#39;, [userId, name], function(err, results) {
+    // ...
+});
+console.log(query.sql); // SELECT * FROM users WHERE id = 1, name = &#39;test&#39;
+</code></pre></li>
 </ul>
 </div></div><div class=footer>@2016-2017</div></html>

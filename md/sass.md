@@ -1,0 +1,195 @@
+# sass的用法
+### 基本指定
+* 
+        sass input.scss output.css
+        sass --watch input.scss:output.css //监视文件的变化自动编译
+        sass --watch app/sass:public/stylesheets  //监视文件夹的变化自动编译
+
+### 基本用法
+* sass中的变量支持局部变量转换为全局变量（可以定义全局变量和局部变量）
+* 
+        #main {
+            $width: 5em !global;    //添加!global进行申明，局部变量转换为全局变量
+            width: $width;
+        }
+
+        #sidebar {
+            width: $width;
+        }
+* sass支持无引号字符串和有引号字符串，除了#{}包裹的字符串
+* sass中支持的运算发：+, -, *, /, %，<, >, <=, >=
+* 颜色值进行运算
+
+        p {
+            $color: #040506;
+            color: #010203 + $color;
+        }
+        p {
+            color: #010203 * 2;
+        }
+        p {
+        color: rgba(255, 0, 0, 0.75) + rgba(0, 255, 0, 0.75);
+        }
+* SassScript 支持布尔型的 and or 以及 not 运算。
+* 圆括号可以用来影响运算的顺序：
+
+        p {
+        width: 1em + (2em * 3);
+        }
+* 插值语句 #{}
+
+        $name: foo;
+        $attr: border;
+        p.#{$name} {
+        #{$attr}-color: blue;
+        }
+* $的用法
+
+        @mixin does-parent-exist {
+            @if & {
+                &:hover {
+                color: red;
+                }
+            } @else {
+                a {
+                color: red;
+                }
+            }
+        }
+### @import
+* Sass 拓展了 @import 的功能，允许其导入 SCSS 或 Sass 文件。被导入的文件将合并编译到同一个 CSS 文件中，另外，被导入的文件中所包含的变量或者混合指令 (mixin) 都可以在导入的文件中使用。
+* 导入文件的方式
+
+        @import "foo.scss";
+        @import "foo";   //不指定后缀名，sass会自动寻找文件名与之相同，后缀名为sass/scss的文件
+        @import "rounded-corners", "text-shadow";   通过这种方式可以导入多个文件
+* 分音 (Partials)     如果需要导入 SCSS 或者 Sass 文件，但又不希望将其编译为 CSS，只需要在文件名前添加下划线，这样会告诉 Sass 不要编译这些文件，但导入语句中却不需要添加下划线。
+* @extend
+
+        .error {
+            border: 1px #f00;
+            background-color: #fdd;
+        }
+        .seriousError {
+            @extend .error;
+            border-width: 3px;
+        }
+* @if
+
+        $type: monster;
+            p {
+            @if $type == ocean {
+                color: blue;
+            } @else if $type == matador {
+                color: red;
+            } @else if $type == monster {
+                color: green;
+            } @else {
+                color: black;
+            }
+        }
+* @for
+
+        @for $i from 1 through 3 {
+        .item-#{$i} { width: 2em * $i; }
+        }
+* @each
+
+        @each $animal in puma, sea-slug, egret, salamander {
+        .#{$animal}-icon {
+            background-image: url('/images/#{$animal}.png');
+        }
+        }
+        编译为
+
+        .puma-icon {
+        background-image: url('/images/puma.png'); }
+        .sea-slug-icon {
+        background-image: url('/images/sea-slug.png'); }
+        .egret-icon {
+        background-image: url('/images/egret.png'); }
+        .salamander-icon {
+        background-image: url('/images/salamander.png'); }
+### 混合指令
+* 混合指令的定义
+
+        @mixin clearfix {
+            display: inline-block;
+            &:after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+            * html & { height: 1px }
+        }
+* 混合指令的引用
+
+        .page-title {
+            @include large-text;
+            padding: 4px;
+            margin-top: 10px;
+        }
+* 混合指定也可以传参数
+
+        @mixin sexy-border($color, $width) {    //也可以像es6里面的语法一样设置默认值
+            border: {
+                color: $color;
+                width: $width;
+                style: dashed;
+            }
+        }
+        p { @include sexy-border(blue, 1in); }
+### 支持函数指令
+* 
+        @mixin sexy-border($color, $width) {
+            border: {
+                color: $color;
+                width: $width;
+                style: dashed;
+            }
+        }
+        p { @include sexy-border(blue, 1in); }
+### HSL颜色函数包括哪些具体的函数，所起的作用是什么
+* hsl($hue,$saturation,$lightness)：通过色相（hue）、饱和度(saturation)和亮度（lightness）的值创建一个颜色；
+* adjust-hue($color,$degrees)：通过改变一个颜色的色相值，创建一个新的颜色；
+* lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；
+* darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+* saturate($color,$amount)：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色
+* desaturate($color,$amount)：通过改变颜色的饱和度值，让颜色更少的饱和，从而创建出一个新的颜色；
+* grayscale($color)：将一个颜色变成灰色，相当于desaturate($color,100%);
+* complement($color)：返回一个补充色，相当于adjust-hue($color,180deg);
+* invert($color)：反回一个反相色，红、绿、蓝色值倒过来，而透明度不变。
+
+        1 >> hsl(200,30%,60%) //通过h200,s30%，l60%创建一个颜色
+        2 #7aa3b8
+        3 >> hsla(200,30%,60%,.8)//通过h200,s30%，l60%,a80%创建一个颜色
+        4 rgba(122, 163, 184, 0.8)
+        5 >> hue(#7ab)//得到#7ab颜色的色相值
+        6 195deg
+        7 >> saturation(#7ab)//得到#7ab颜色的饱和度值
+        8 33.33333%
+        9 >> lightness(#7ab)//得到#7ab颜色的亮度值
+        10 60%
+        11 >> adjust-hue(#f36,150deg) //改变#f36颜色的色相值为150deg
+        12 #33ff66
+        13 >> lighten(#f36,50%) //把#f36颜色亮度提高50%
+        14 #ffffff
+        15 >> darken(#f36,50%) //把#f36颜色亮度降低50%
+        16 #33000d
+        17 >> saturate(#f36,50%) //把#f36颜色饱和度提高50%
+        18 #ff3366
+        19 >> desaturate(#f36,50%) //把#f36颜色饱和度降低50%
+        20 #cc667f
+        21 >> grayscale(#f36) //把#f36颜色变成灰色
+        22 #999999
+        23 >> complement(#f36)
+        24 #33ffcc
+        25 >> invert(#f36)
+        26 #00cc99
+### 扩展（less与sass的区别）
+* less与sass区别主要在他们的实现方式不同：less是基于JavaScript的是在客户端处理，而sass是基于ruby的，是在服务端处理的，开发者一般不会选择less是因为sass需要浏览器的JavaScript引擎额外的时间来处理，这种方式可以通过转换器在生产环境将less文件转换为css文件
+* 变量声明区别：less中使用@，而sass中使用$
+* less中不支持if等条件控制
+* 全局定义的变量在块级作用域中修改值之后，less中在后面的代码中还是会继续使用全局定义的值，但是在sass中就会使用重新定义的值

@@ -31,6 +31,9 @@ a {
     text-decoration: none;
     vertical-align: baseline;
 }
+li a{
+    color: #61BFC1;
+}
 a:hover {
     text-decoration: underline;
 }

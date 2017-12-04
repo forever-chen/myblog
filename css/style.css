@@ -515,10 +515,10 @@ pre{
 
 /* page样式 */
 .content .pagetitle{
-  margin: 0 0 10px;
+  /* margin: 0 0 10px;
   line-height: 1.4;
   font-size: 1.3em;
-  font-weight: 400;
+  font-weight: 400; */
 }
 .content .pagedate{
   color: #aaa;

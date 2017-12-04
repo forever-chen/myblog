@@ -72,3 +72,4 @@
 		   },0);
 		});
 		把代码放在 setTimeout 中，会发现程序变快.
+* 扩展链接：[WebApp与Native App有何区别呢？](https://www.cnblogs.com/webapplee/p/3771716.html)

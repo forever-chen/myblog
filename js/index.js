@@ -1,5 +1,6 @@
 // 列表中数据
 var list =[
+    {title:'sass的基本用法',date:'Dec 1',address:'./views/sass-page.html'},    
     {title:'开发过程遇到的坑',date:'Nov 25',address:'./views/hole-page.html'},
     {title:'markdown的常用语法',date:'Nov 20',address:'./views/markdown-page.html'},
     {title:'H5新属性以及新特性',date:'Nov 11',address:'./views/h5-page.html'},

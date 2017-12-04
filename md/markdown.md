@@ -51,3 +51,4 @@ This is [an example](http://example.com/ "Title") inline link.
 * markdown输入特殊字符需要反斜杠来进行转移
 * markdown支持html标签（特别是链接可以直接用a链接标签，图片也可以用哪个img标签）
 * 一个片段写完之后要用分割线要空一行，然后使用
+* 如果标题下来直接写代码则需要空一行或者是空一行加*然后换行写代码，如果是\*写代码则不需要在空白行加\*
