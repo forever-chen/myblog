@@ -16,6 +16,8 @@ var list =[
     {title:'函数闭包理解',date:'Oct 29',address:'./views/closed-page.html'},
     {title:'移动端字体使用',date:'Oct 20',address:'./views/mobileFont-page.html'},
     {title:'node.Js实现数据库链接',date:'Oct 18',address:'./views/mysqlConnect-page.html'},
+    {title:'react基础知识',date:'Oct 16',address:'./views/react-page.html'},
+    
 ];
 // 页面渲染函数
 function render(){

@@ -3,6 +3,98 @@
 <li>React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以无需关心 Virtual DOM 背后的运作原理，因为 React diff 会帮助我们计算出 Virtual DOM 中真正变化的部分，并只针对该部分进行实际 DOM 操作，而非重新渲染整个页面，从而保证了每次操作更新后页面的高效渲染，因此 Virtual DOM 与 diff 是保证 React 性能口碑的幕后推手。<h3 id="react-">react事件合成机制</h3>
 </li>
 <li>react组件上绑定的事件最终绑定到了document的对应的节点上，故而对应的节点绑定原生的事件，这样减少了dom的原生事件，减少了内存开支</li>
-<li>React以队列的方式，从触发事件的组件向父组件回溯，调用它们在JSX中声明的callback。也就是React自身实现了一套事件冒泡机制。我们没办法用event.stopPropagation()来停止事件传播，应该使用event.preventDefault()</li>
+<li>React以队列的方式，从触发事件的组件向父组件回溯，调用它们在JSX中声明的callback。也就是React自身实现了一套事件冒泡机制。我们没办法用event.stopPropagation()来停止事件传播，应该使用event.preventDefault()<h3 id="-react-shouldcomponentupdate-">什么时候要在React组件中写shouldComponentUpdate？</h3>
+</li>
+<li>添加shouldComponentUpdate方法一般都会拖慢组件的更新速度。</li>
+<li><p>React已经替我们实现了一个shouldComponentUpdate。为了简化，我们可以假装props不是绑在组件的this上的，而是直接传给了render，那么React的实现基本上就是下面这样的：</p>
+<pre><code>  shouldComponentUpdate(nextProps) {
+      return !deepEquals(render(this.props), render(nextProps))
+  }
+</code></pre></li>
+<li>React团队说shouldComponentUpdate是个紧急出口，而不是加速按钮应该就是出于这个原因。<h3 id="react-">react服务端渲染</h3>
+</li>
+<li>react提供了两个方法：reactToString和reactStaticMarkUp。通过这两个方法将Virtual DOM输出位HTML字符串，这是ract服务端渲染的基础，它移除了服务端对于浏览器的依赖。</li>
+<li>服务器端渲染除了要解决对浏览器环境的依赖，还要解决两个问题：前后端代码共享和前后端路由统一处理</li>
+<li><strong>redux的运行机制</strong><blockquote>
+<p>Redux 提供了一套类似 Flux 的单向数据流，整个应用只维护一个 Store，以及面向函数式的特性让它对服务器端渲染支持很友好。<br>关于store</p>
+<blockquote>
+<p>整个应用只有一个唯一的 Store<br>store对应的状态树，由一个reducer函数（root reducer）生成<br>状态树的每一个字段都可以进一步由不同的reducer生成<br>store包括几个方法dispatch，getState<br>store的状态树只能通过dispatch（action）来触发更改<br>redux的数据流<br>action 是一个包含 { type, payload } 的对象<br>reducer 函数通过 store.dispatch(action) 触发<br>reducer 函数接受 (state, action) 两个参数，返回一个新的 state<br>reducer 函数判断 action.type 然后处理对应的 action.payload 数据来更新状态树<br>所以对于整个应用来说，一个 Store 就对应一个 UI 快照，服务器端渲染就简化成了在服务器端初始化 Store，将 Store 传入应用的根组件，针对根组件调用 renderToString 就将整个应用输出成包含了初始化数据的 HTML。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>react-router</strong></p>
+<blockquote>
+<p>react-router 通过一种声明式的方式匹配不同路由决定在页面上展示不同的组件，并且通过 props 将路由信息传递给组件使用，所以只要路由变更，props 就会变化，触发组件 re-render。</p>
+</blockquote>
+<pre><code>  import React from &#39;react&#39;;
+  import { Route } from &#39;react-router&#39;;
+  import { List, Item } from &#39;./components&#39;;
+
+  // 无状态（stateless）组件，一个简单的容器，react-router 会根据 route
+  // 规则匹配到的组件作为 `props.children` 传入
+  const Container = (props) =&gt; {
+  return (
+      &lt;div&gt;{props.children}&lt;/div&gt;
+  );
+  };
+
+  // route 规则：
+  // - `/list` 显示 `List` 组件
+  // - `/item/:id` 显示 `Item` 组件
+  const routes = (
+  &lt;Route path=&quot;/&quot; component={Container} &gt;
+      &lt;Route path=&quot;list&quot; component={List} /&gt;
+      &lt;Route path=&quot;item/:id&quot; component={Item} /&gt;
+  &lt;/Route&gt;
+  );
+
+  export default routes;
+</code></pre></li>
+<li><p><strong>reducer</strong></p>
+<blockquote>
+<p>Store 是由 reducer 产生的，所以 reducer 实际上反映了 Store 的状态树结构</p>
+</blockquote>
+<pre><code>  import listReducer from &#39;./list&#39;;
+  import itemReducer from &#39;./item&#39;;
+  // 整个reducer
+  export default function rootReducer(state = {}, action) {
+      return {
+          list: listReducer(state.list, action),
+          item: itemReducer(state.item, action)
+      };
+  }
+
+  // 每一个reducer
+  const initialState = [];
+  export default function listReducer(state = initialState, action) {
+      switch(action.type) {
+      case &#39;FETCH_LIST_SUCCESS&#39;: return [...action.payload];
+      default: return state;
+      }
+  }
+</code></pre><blockquote>
+<blockquote>
+<p>isomorphic-fetch 是一个前后端通用的 Ajax 实现，前后端要共享代码这点很重要。</p>
+</blockquote>
+</blockquote>
+<pre><code>  import fetch from &#39;isomorphic-fetch&#39;;
+  export function fetchList() {
+      return (dispatch) =&gt; {
+          return fetch(&#39;/api/list&#39;)
+              .then(res =&gt; res.json())
+              .then(json =&gt; dispatch({ type: &#39;FETCH_LIST_SUCCESS&#39;, payload: json }));
+      }
+  }
+
+  export function fetchItem(id) {
+      return (dispatch) =&gt; {
+          if (!id) return Promise.resolve();
+          return fetch(`/api/item/${id}`)
+              .then(res =&gt; res.json())
+              .then(json =&gt; dispatch({ type: &#39;FETCH_ITEM_SUCCESS&#39;, payload: json }));
+      }
+  }
+</code></pre></li>
+<li>扩展链接<a href="https://blog.coding.net/blog/React-server-rendering">react服务端渲染原理解析</a></li>
 </ul>
 </div></div><div class=footer>@2016-2017</div></html>

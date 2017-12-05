@@ -6,7 +6,15 @@
 * reducer必须返回一个新的对象才能出发组件的更新
 因为在connect函数中会对新旧两个state进行浅对比，如果state只是值改变但是引用地址没有改变，connect会认为它们相同而不触发更新。
 * 组件命名的首字母必须是大写，这是类命名的规范。
+* react事件处理不能通过`return false`来阻止默认事件，必须用`event.preventDefault()`。
 * componentWillUpdate中可以直接改变state的值，而不能用setState。
+* react的时间绑定有三种方式:事件绑定都是通过事件代理的方式绑定到document上，达到性能优化的木的。
+
+		this.handleClick = this.handleClick.bind(this); // 这种是官方给出的方式
+		onClick={(e) => this.handleClick(e)} // 这样的用法就是不让handleClick函数脱离类的实例对象，反而将DOM元素作为参数传到函数中。
+		handleClick = () => {
+				console.log('this is:', this); // 此语法只建立在Babel中，不属于ES6语法内容
+		}
 * 组件卸载之前，加在dom元素上的监听事件，和定时器需要手动清除，因为这些并不在react的控制范围内，必须手动清除。指的是在this.refs.xxx这种真实dom上addEventListener这样添加的监听事件，在组件卸载的时候要手动清除(removeEventListener)，react组件上的onClick这种不用管，react帮我们处理好了
 * react首屏渲染速度比较慢，是因为它首先要在内存中构建页面框架，然后才会在浏览器中进行渲染，但是在第一次渲染完成之后，后期进行变化时由于react的diff算法，渲染速度比较快
 * 首先是在页面中，当元素加载之前和加载之后，绑定滚动事件。
