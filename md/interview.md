@@ -74,5 +74,18 @@
         //第三种方式：create的方式
         var obj = Object.create({name:1})
     > 原型链的基本原理就是实例化的对象拥有它的构造函数的属性以及构造函数原型的所有方法
-    > \_\_proto\_\_属性是构造函数的原型的属性
-    > 
+    > \_\_proto\_\_属性是构造函数的原型的属性，实例的proto属性可以是原型链上任何一个原型的prototype
+    > constructor构造函数可以判断实例的原型
+    ![原型、构造函数、实例](../image/interview3.jpg)
+    > new运算符
+    new运算符的运行过程
+    var new = function(func){
+        var newObj = {};
+        newObj.\_\_proto\_\_=func.prototype;
+        var k = func.call(newObj);
+        if(k==='Object'){
+            return k;
+        } else {
+            return newObj;
+        }
+    }
