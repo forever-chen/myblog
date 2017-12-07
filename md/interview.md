@@ -76,6 +76,20 @@
     > 原型链的基本原理就是实例化的对象拥有它的构造函数的属性以及构造函数原型的所有方法
     > prototype属性是构造函数的属性
     > \_\_proto\_\_这个属性值是该对象的prototype
+    > constructor构造函数可以判断实例的原型
+    ![原型、构造函数、实例](../image/interview3.jpg)
+    > new运算符
+    new运算符的运行过程
+    var new = function(func){
+        var newObj = {};
+        newObj.\_\_proto\_\_=func.prototype;
+        var k = func.call(newObj);
+        if(k==='Object'){
+            return k;
+        } else {
+            return newObj;
+        }
+    }
 * 继承
     > 类的声明：es6的声明方式
     > 继承方式：借助构造函数实现继承，通过call改变this指针，前两种方式的组合进行继承
@@ -109,3 +123,4 @@
     
 
 
+   
