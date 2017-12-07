@@ -74,5 +74,38 @@
         //第三种方式：create的方式
         var obj = Object.create({name:1})
     > 原型链的基本原理就是实例化的对象拥有它的构造函数的属性以及构造函数原型的所有方法
-    > \_\_proto\_\_属性是构造函数的原型的属性
-    > 
+    > prototype属性是构造函数的属性
+    > \_\_proto\_\_这个属性值是该对象的prototype
+* 继承
+    > 类的声明：es6的声明方式
+    > 继承方式：借助构造函数实现继承，通过call改变this指针，前两种方式的组合进行继承
+    > prototype属性中有construtor属性
+    > Object.create创建对象
+* 通信类
+    > 同源(协议、域名、端口)策略的的定义以及限制：cookie/localStorage/indexDB无法读取；DOM无法获取；ajax请求无法发送
+    > 前后端如何通信：ajax,websocket,cors
+    > 如何创建ajax:注意兼容性，事件的触发条件，触发顺序
+    > 跨域通信的几种方式：jsonp,hash,postMessage,websocket,cors
+    >> jsonp跨域是通过script标签的异步加载实现的
+
+        function resolveJson(){
+            console.log(res)
+        }
+        var jsonScript = document.createElement("script");
+        jsonScript.src='http://hao123.com?callbackName=resolveJson';
+        jsonScript.type='text/javascript';
+        document.getElementByTagName('head')[0].appendChild(jsonScript);
+        客户端代码：resolveJson({name: 'qiutc'});
+    >> hash通过iframe嵌入一个新页面:首先获取到iframe标签然后给src属性添加'#'+data(需要传递的数据)
+    >> hash的变化页面不刷新所以可以做跨域通信，search改变页面会刷新
+    >> cors是可以跨域的ajax请求（fetch支持ie8以上）
+    >>> Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: 'include'})
+    >>> 服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。
+    >> [跨域扩展阅读](https://segmentfault.com/a/1190000006095018)
+* 安全类型(CSRF/XSS)
+    > CSRF共计原理和防御措施
+    >> 跨站请求伪造
+    ![攻击原理](../image/interview4.jpg)
+    
+
+
