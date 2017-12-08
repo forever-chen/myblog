@@ -100,7 +100,7 @@
     > 前后端如何通信：ajax,websocket,cors
     > 如何创建ajax:注意兼容性，事件的触发条件，触发顺序
     > 跨域通信的几种方式：jsonp,hash,postMessage,websocket,cors
-    >> jsonp跨域是通过script标签的异步加载实现的
+    >> jsonp跨域是通过script标签的异步加载实现的(只支持get请求)
 
         function resolveJson(){
             console.log(res)
@@ -115,7 +115,8 @@
     >> cors是可以跨域的ajax请求（fetch支持ie8以上）
     >>> Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: 'include'})
     >>> 服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。
-    >> [跨域扩展阅读](https://segmentfault.com/a/1190000006095018)
+    >> [fetch请求扩展阅读](https://segmentfault.com/a/1190000006095018)
+    >> [跨域扩展阅读](http://www.jianshu.com/p/fca0facfe381)
 * 安全类型(CSRF/XSS)
     > CSRF共计原理和防御措施
     >> 跨站请求伪造
