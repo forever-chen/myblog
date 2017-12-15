@@ -67,7 +67,7 @@
 <blockquote>
 <p>同源(协议、域名、端口)策略的的定义以及限制：cookie/localStorage/indexDB无法读取；DOM无法获取；ajax请求无法发送<br>前后端如何通信：ajax,websocket,cors<br>如何创建ajax:注意兼容性，事件的触发条件，触发顺序<br>跨域通信的几种方式：jsonp,hash,postMessage,websocket,cors</p>
 <blockquote>
-<p>jsonp跨域是通过script标签的异步加载实现的</p>
+<p>jsonp跨域是通过script标签的异步加载实现的(只支持get请求)</p>
 </blockquote>
 </blockquote>
 <pre><code>  function resolveJson(){
@@ -82,7 +82,7 @@
 <blockquote>
 <p>hash通过iframe嵌入一个新页面:首先获取到iframe标签然后给src属性添加&#39;#&#39;+data(需要传递的数据)<br>hash的变化页面不刷新所以可以做跨域通信，search改变页面会刷新<br>cors是可以跨域的ajax请求（fetch支持ie8以上）</p>
 <blockquote>
-<p>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: &#39;include&#39;})<br>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。<br><a href="https://segmentfault.com/a/1190000006095018">跨域扩展阅读</a></p>
+<p>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: &#39;include&#39;})<br>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。<br><a href="https://segmentfault.com/a/1190000006095018">fetch请求扩展阅读</a><br><a href="http://www.jianshu.com/p/fca0facfe381">跨域扩展阅读</a></p>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -148,6 +148,8 @@
 <li>事务推动能力</li>
 <li>带人能力</li>
 <li>遇到什么问题</li>
-<li>最大的收获是什么<br><img src="../image/interview7.jpg" alt="面试问题"></li>
+<li>最大的收获是什么<br><img src="../image/interview7.jpg" alt="面试问题"><h3 id="-">面试中可能问道的问题</h3>
+</li>
+<li>页面导入样式时，使用link和@import有什么区别？</li>
 </ul>
 </div></div><div class=footer>@2016-2017</div></html>
