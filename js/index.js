@@ -2,6 +2,8 @@
 var list =[
     {title:'webpack的用法',date:'Dec 8',address:'./views/webpack-page.html'},    
     {title:'面试基础知识',date:'Dec 8',address:'./views/interview1-page.html'},    
+    {title:'面试内容',date:'Dec 8',address:'./views/interview1-page.html'},    
+    
     {title:'sass的基本用法',date:'Dec 1',address:'./views/sass-page.html'},    
     {title:'开发过程遇到的坑',date:'Nov 25',address:'./views/hole-page.html'},
     {title:'markdown的常用语法',date:'Nov 20',address:'./views/markdown-page.html'},
