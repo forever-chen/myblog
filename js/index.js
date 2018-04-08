@@ -1,9 +1,13 @@
 // 列表中数据
 var list =[
+    // 2018
+    {title:'title',content:'<h2 class=year>2018</h2>'},        
+    {title:'经典语录',date:'Apr 8',address:'./views/quotation-page.html'},    
+    // 2017
+    {title:'title',content:'<h2 class=year>2017</h2>'},    
     {title:'webpack的用法',date:'Dec 8',address:'./views/webpack-page.html'},    
     {title:'面试基础知识',date:'Dec 8',address:'./views/interview1-page.html'},    
     {title:'面试内容',date:'Dec 8',address:'./views/interview1-page.html'},    
-    
     {title:'sass的基本用法',date:'Dec 1',address:'./views/sass-page.html'},    
     {title:'开发过程遇到的坑',date:'Nov 25',address:'./views/hole-page.html'},
     {title:'markdown的常用语法',date:'Nov 20',address:'./views/markdown-page.html'},
@@ -25,10 +29,14 @@ var list =[
 // 页面渲染函数
 function render(){
     list.map((item,index)=>{
-        $(`<div class=title>
-        <div class=titletime>${item.date}</div>
-        <a href=${item.address} class='titlecontent'>${item.title}</a>
-      </div>`).appendTo($('.contentInner'))
+        if(item.title=='title'){
+            $(`${item.content}`).appendTo($('.contentInner'))
+        }else{
+            $(`<div class=title>
+            <div class=titletime>${item.date}</div>
+            <a href=${item.address} class='titlecontent'>${item.title}</a>
+          </div>`).appendTo($('.contentInner'))
+        }
     })
 }
 // 页面初始化调用渲染函数

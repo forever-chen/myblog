@@ -5,9 +5,9 @@
 <p>通过浮动实现(脱离文档流，兼容性比较好)<br>通过定位实现(子元素也脱硫文档流，快捷，方便)<br>flex布局(解决上面两个的缺点，只支持到ie9)<br>table布局(兼容性好，当三个钟一个高度增加时，其它的两个也增加)<br>网格布局(grid)</p>
 <blockquote>
 <p>延伸：每个解决方案的优缺点、高度去掉那个还试用、兼容性怎么样<br>去掉高度flex和table布局是可以用的<br>创建bfc<br>  <strong>页面布局小结：语义化掌握、页面布局深刻理解、css基础知识、思维灵活积极上进、代码书写规范</strong></p>
+</blockquote>
+</blockquote>
 <h3 id="-">面试内容</h3>
-</blockquote>
-</blockquote>
 </li>
 <li>css3盒模型<blockquote>
 <p>margin padding content border ie模型 标准模型<br>标准模型与ie模型的区别：宽度与高度的不同，css如何设置这两种模型(标准模型指的是content的宽、高，ie的宽高包括padding、border，可以通过box-sizing)<br>js获取盒模型的宽度和高度()</p>
@@ -91,9 +91,9 @@
 <p>CSRF共计原理和防御措施</p>
 <blockquote>
 <p>跨站请求伪造<br>  <img src="../image/interview4.jpg" alt="攻击原理"></p>
+</blockquote>
+</blockquote>
 <h3 id="-">二面主要内容</h3>
-</blockquote>
-</blockquote>
 </li>
 <li><strong>渲染机制、js运行机制、页面性能、错误监控</strong></li>
 <li>渲染机制<blockquote>
@@ -125,6 +125,8 @@
 <p>协商缓冲：浏览器向服务器请求该内容是否可以缓冲</p>
 </blockquote>
 </blockquote>
+</blockquote>
+<blockquote>
 <p>使用CDN：cdn加载非常快（尤其是首次打开页面的时候）<br>与解析DNS</p>
 </blockquote>
 <pre><code>  &lt;meta http=&#39;x-dns-prefetch-control&#39; content=&#39;on&#39;&gt;   //如何页面是https协议很多浏览器默认是关闭预解析功能，使用这句meta标签就可以打开预解析功能
@@ -133,10 +135,10 @@
 <li>错误监控（产品上线，产生的错误自动收集）<blockquote>
 <p>前端错误的分类</p>
 <blockquote>
-<p>即时运行错误<br>资源加载错误:不会冒泡，所以window.onerror无法捕获这种错误<br>错误的捕获方式<br>try...catch<br>window.onerror<br>object.onerror<br>performance.getEntries()     //高级浏览器获取到的是一个资源数组<br>error事件捕获，通过addEventListener添加error事件时，设置为false<br>  <img src="../image/interview6.jpg" alt="跨域脚本错误的捕获"><br>上报错误的基本原理<br>利用image对象上报<br>  (new image()).src=&#39;<a href="http://baidu.com/sda?aa=5&amp;bb">http://baidu.com/sda?aa=5&amp;bb</a>&#39;</p>
+<p>即时运行错误<br>资源加载错误:不会冒泡，所以window.onerror无法捕获这种错误<br>错误的捕获方式<br>try...catch<br>window.onerror<br>object.onerror<br>performance.getEntries()     //高级浏览器获取到的是一个资源数组<br>error事件捕获，通过addEventListener添加error事件时，设置为false<br>  <img src="../image/interview6.jpg" alt="跨域脚本错误的捕获"><br>上报错误的基本原理<br>利用image对象上报<br>  (new image()).src=&#39;<a href="http://baidu.com/sda?aa=5&amp;bb&#39;">http://baidu.com/sda?aa=5&amp;bb&#39;</a></p>
+</blockquote>
+</blockquote>
 <h3 id="-">三面和四面</h3>
-</blockquote>
-</blockquote>
 </li>
 <li>准备充分：项目背后的技术以及难点，项目的亮点</li>
 <li>描述要演练</li>
